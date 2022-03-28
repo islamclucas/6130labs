@@ -36,7 +36,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 var Schema = mongoose.Schema;
 
-var stockSchema = new Schema({
+var stockSchema = new Schema({//change to match
   _id: Number,
   item: String,
   price: Number,
