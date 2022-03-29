@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 
 //Mongo db client library
-//const MongoClient  = require('mongodb');
+const MongoClient  = require('mongodb');
 
 //Express web service library
 const express = require('express')
@@ -36,26 +36,29 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 var Schema = mongoose.Schema;
 
-var stockSchema = new Schema({//change to match
-  _id: Number,
-  item: String,
-  price: Number,
-  quantity: Number
+var interactionSchema = new Schema({//changed to match
+  Acc_ID: Number,
+  User_Name: String,
+  Title_ID: String,
+  User_Action: Number,
+  dateTime: Date,
+  interactionPoint: String,
+  interactionType: String
 });
 
-var stockModel = mongoose.model('Stock', stockSchema, 'stock');
+var InteractionsModel = mongoose.model('Interactions', interactionSchema, 'interactions');
 
 
 
 app.get('/', (req, res) => {
-  stockModel.find({},'item price quantity lastName', (err, stock) => {
+  stockModel.find({},'accountID username titleID userAction DateTime interactionPoint interactionType', (err, stock) => {
     if(err) return handleError(err);
-    res.send(JSON.stringify(stock))
+    res.send(JSON.stringify(interactionSchema))
   }) 
 })
 
 app.post('/',  (req, res) => {
-  var awesome_instance = new SomeModel(req.body);
+  var awesome_instance = new InteractionsModel(req.body);
   awesome_instance.save(function (err) {
   if (err) res.send('Error');
     res.send(JSON.stringify(req.body))

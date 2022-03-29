@@ -1,0 +1,53 @@
+// MongoDB Playground
+// To disable this template go to Settings | MongoDB | Use Default Template For Playground.
+// Make sure you are connected to enable completions and to be able to run a playground.
+// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
+
+// Select the database to use.
+use('notflixDB');
+
+// The drop() command destroys all data from a collection.
+// Make sure you run it against the correct database and collection.
+db.interactions.drop();
+
+// Insert a few documents into the sales collection.
+db.interactions.insertMany([ 
+  { 'Acc_ID': 1, 'User_Name': 'user2313145', 'Title_ID': 80, 'User_Action': 'pause', Date_Time : new Date('2022-03-20T06:20:00Z'), interactionPoint: 'main', interactionType: 'pause'}, 
+  { 'Acc_ID': 2, 'User_Name': 'Tanya', 'Title_ID': 2330, 'User_Action': 'pause', Date_Time : new Date('2021-01-21T22:28:00Z'), interactionPoint: 'main', interactionType: 'rewind'}, 
+  { 'Acc_ID': 3, 'User_Name': 'lauren', 'Title_ID': 3470, 'User_Action': 'rewind', Date_Time : new Date('2022-03-20T06:20:00Z'), interactionPoint: 'main', interactionType: 'pause'}, 
+  { 'Acc_ID': 4, 'User_Name': 'Boots', 'Title_ID': A3485, 'User_Action':  'skip', Date_Time : new Date('2022-01-T06:20:00Z'), interactionPoint: 'main', interactionType: 'play' }, 
+  { 'Acc_ID': 5, 'User_Name': 'Gingie', 'Title_ID': F4390, 'User_Action': 'pause', Date_Time : new Date('2022-01-20T22:55:00Z'), interactionPoint: 'main', interactionType: 'rewind'}, 
+  { 'Acc_ID': 6, 'User_Name': '4quaad', 'Title_ID': 4B75, 'User_Action': 'play', Date_Time : new Date('2022-03-20T06:40:00Z'), interactionPoint: 'main', interactionType: 'exit'}, 
+  { 'Acc_ID': 7, 'User_Name': 'Fiona', 'Title_ID': 3465, 'User_Action': 'pause', Date_Time : new Date('2022-02-12T10:30:00Z'), interactionPoint: 'main', interactionType: 'pause' } 
+]);
+
+/*
+// Run a find command to view items sold on April 4th, 2014.
+//db.interactions.find({ date: { $gte: new Date('2014-04-04'), $lt: new Date('2014-04-05') } });
+
+// Build an aggregation to view total sales for each product in 2014.
+const aggregation = [
+  { $match: { date: { $gte: new Date('2014-01-01'), $lt: new Date('2015-01-01') } } },
+  { $group: { _id: '$item', totalSaleAmount: { $sum: { $multiply: [ '$price', '$quantity' ] } } } }
+];
+
+
+use('notflixDB');
+db.getCollection('interactions').find(
+  {
+
+  },
+  {
+    User_Name: 1
+  }
+)
+.sort({
+  item:1
+});
+
+// Run the aggregation and open a cursor to the results.
+// Use toArray() to exhaust the cursor to return the whole result set.
+// You can use hasNext()/next() to iterate through the cursor page by page.
+
+*/
+db.interactions.aggregate(aggregation);
