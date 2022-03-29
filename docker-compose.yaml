@@ -57,9 +57,7 @@ services:
     volumes:
       - ./nodejs/src:/usr/src/app/
 
-  
-
-  services:
+services:
   # Message tier
   rabbitmq-stats:
     image: bitnami/rabbitmq:3.8.14
