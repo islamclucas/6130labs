@@ -1,6 +1,5 @@
 version: "3"
 services:
- 
   mongo1:
     hostname: mongo1
     container_name: localmongo1
@@ -56,6 +55,7 @@ services:
   
   nginx: 
     build: ./nginx
+    container_name: "nginx"
     ports:
     - "80:80"
     depends_on:
@@ -63,7 +63,7 @@ services:
       - node2
       - node3
 
-  rabbitmq-stats:
+  rabbitmq-stats: # message
     image: bitnami/rabbitmq:3.8.14
     container_name: rabbitmq-stats
     volumes:
