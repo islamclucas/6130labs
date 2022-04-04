@@ -53,6 +53,15 @@ services:
     build: ./nodejs
     ports:
       - "83:3000"
+  
+  nginx: 
+    build: ./nginx
+    ports:
+    - "80:80"
+    depends_on:
+      - node1
+      - node2
+      - node3
 
   rabbitmq-stats:
     image: bitnami/rabbitmq:3.8.14
