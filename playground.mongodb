@@ -31,7 +31,7 @@ const aggregation = [
   { $group: { _id: '$item', totalSaleAmount: { $sum: { $multiply: [ '$price', '$quantity' ] } } } }
 ];
 
-
+*/
 use('notflixDB');
 db.getCollection('interactions').find(
   {
@@ -49,5 +49,5 @@ db.getCollection('interactions').find(
 // Use toArray() to exhaust the cursor to return the whole result set.
 // You can use hasNext()/next() to iterate through the cursor page by page.
 
-*/
+
 db.interactions.aggregate(aggregation);
