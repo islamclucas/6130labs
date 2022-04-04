@@ -18,6 +18,16 @@ const port = 3000
 //connection string listing the mongo servers. This is an alternative to using a load balancer. THIS SHOULD BE DISCUSSED IN YOUR ASSIGNMENT.
 const connectionString = 'mongodb://localmongo1:27017,localmongo2:27017,localmongo3:27017/notflixDB?replicaSet=rs0';
 
+
+//checking rmq alive and running
+var leader = false;
+var rMQrunning =false;
+var amqp =require('amqplib/callback_api'); //in test folder
+var alive = true;
+
+
+
+
 setInterval(function() {
 
   console.log(`Intervals are used to fire a function for the lifetime of an application.`);
