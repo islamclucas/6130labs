@@ -40,21 +40,26 @@ services:
  
   node1:
     build: ./nodejs
-    volumes:
-      -./nodejs/src/app/
     ports:
       - "81:3000"
+    volumes:
+      - ./nodejs/src/app/
+    
  
   node2:
     build: ./nodejs
     ports:
       - "82:3000"
- 
+    volumes:
+      - ./nodejs/src/app/
+    
   node3:
     build: ./nodejs
     ports:
       - "83:3000"
-  
+    volumes:
+      - ./nodejs/src/app/
+    
   nginx: 
     build: ./nginx
     container_name: "nginx"
