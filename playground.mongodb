@@ -38,11 +38,11 @@ db.getCollection('interactions').find(
 
   },
   {
-    User_Name: 1
+    Acc_ID: 1
   }
 )
 .sort({
-  item:1
+  accID:1
 });
 
 // Run the aggregation and open a cursor to the results.
